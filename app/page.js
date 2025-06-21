@@ -1,13 +1,19 @@
 export default function Home() {
   return (
-    <main style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
-      <h1>🚀 KD Singh</h1>
-      <p>Professional Portfolio Coming Soon</p>
-      <p>Reach out: <a href="mailto:connect@kdsingh.ca" style={{ textDecoration: 'underline' }}>connect@kdsingh.ca</a></p>
-      <p>
-        Socials: <a href="https://linkedin.com/in/kd-singhh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>LinkedIn</a>
-      </p>
-    </main>
+    <>
+      <Head>
+          <title>KD Singh | Portfolio</title>
+          <meta name="description" content="Professional portfolio of KD Singh" />
+      </Head>
+      <main style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
+        <h1>🚀 KD Singh</h1>
+        <p>Professional Portfolio Coming Soon</p>
+        <p>Reach out: <a href="mailto:connect@kdsingh.ca" style={{ textDecoration: 'underline' }}>connect@kdsingh.ca</a></p>
+        <p>
+          Socials: <a href="https://linkedin.com/in/kd-singhh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>LinkedIn</a>
+        </p>
+      </main>
+    </>
   );
 }
 
