@@ -32,7 +32,7 @@ export default function BuildFastWithAI() {
             Workshop Files
           </a>
           <a 
-            href="https://drive.google.com/drive/folders/1RAstW4pmM1gPecGE_DxKhi6K40k7JWbn?usp=sharing"
+            href="https://forms.gle/rxTvMxUiBzWLHg398"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
