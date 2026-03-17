@@ -28,6 +28,14 @@
     {
       "source": "/one-year-anniversary/:path*",
       "destination": "https://one-year-anniversary-ovdva46be-kds-projects-fa51711e.vercel.app/one-year-anniversary/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/one-year-anniversary/assets/:path*"
+    },
+    {
+      "source": "/one-year-anniversary/:path*",
+      "destination": "https://one-year-anniversary-ovdva46be-kds-projects-fa51711e.vercel.app/one-year-anniversary/:path*"
     }
   ]
 }
