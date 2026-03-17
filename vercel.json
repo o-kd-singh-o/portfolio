@@ -5,8 +5,8 @@
       "destination": "https://valentine-project-eight-mu.vercel.app"
     },
     {
-      "source": "/valentine-project/:match*",
-      "destination": "https://valentine-project-eight-mu.vercel.app/:match*"
+      "source": "/valentine-project/:path*",
+      "destination": "https://valentine-project-eight-mu.vercel.app/valentine-project/:path*"
     }
   ]
 }
