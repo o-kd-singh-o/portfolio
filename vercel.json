@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/valentine",
+      "destination": "/valentine-project",
+      "permanent": true
+    }
+  ],
+
   "rewrites": [
     {
       "source": "/valentine-project",
