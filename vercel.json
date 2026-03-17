@@ -23,11 +23,11 @@
     },
     {
       "source": "/one-year-anniversary",
-      "destination": "https://one-year-anniversary-6r2bohpcp-kds-projects-fa51711e.vercel.app"
+      "destination": "one-year-anniversary-ovdva46be-kds-projects-fa51711e.vercel.app"
     },
     {
       "source": "/one-year-anniversary/:path*",
-      "destination": "https://one-year-anniversary-6r2bohpcp-kds-projects-fa51711e.vercel.app/one-year-anniversary/:path*"
+      "destination": "one-year-anniversary-ovdva46be-kds-projects-fa51711e.vercel.app/one-year-anniversary/:path*"
     }
   ]
 }
