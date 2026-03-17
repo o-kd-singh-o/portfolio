@@ -1,11 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/project1",
+      "source": "/valentine-project",
       "destination": "https://valentine-project-eight-mu.vercel.app"
     },
     {
-      "source": "/project1/:match*",
+      "source": "/valentine-project/:match*",
       "destination": "https://valentine-project-eight-mu.vercel.app/:match*"
     }
   ]
