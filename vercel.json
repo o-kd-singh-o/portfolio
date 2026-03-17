@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/project1",
+      "destination": "https://valentine-project-eight-mu.vercel.app"
+    },
+    {
+      "source": "/project1/:match*",
+      "destination": "https://valentine-project-eight-mu.vercel.app/:match*"
+    }
+  ]
+}
