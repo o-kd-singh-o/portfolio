@@ -4,6 +4,11 @@
       "source": "/valentine",
       "destination": "/valentine-project",
       "permanent": true
+    },
+    {
+      "source": "/one-year",
+      "destination": "/one-year-anniversary",
+      "permanent": true
     }
   ],
 
@@ -15,6 +20,14 @@
     {
       "source": "/valentine-project/:path*",
       "destination": "https://valentine-project-eight-mu.vercel.app/valentine-project/:path*"
+    },
+    {
+      "source": "/one-year-anniversary",
+      "destination": "https://one-year-anniversary-6r2bohpcp-kds-projects-fa51711e.vercel.app"
+    },
+    {
+      "source": "/one-year-anniversary/:path*",
+      "destination": "https://one-year-anniversary-6r2bohpcp-kds-projects-fa51711e.vercel.app/one-year-anniversary/:path*"
     }
   ]
 }
