@@ -23,7 +23,7 @@
     },
     {
       "source": "/one-year-anniversary",
-      "destination": "https://one-year-anniversary-ovdva46be-kds-projects-fa51711e.vercel.app"
+      "destination": "https://one-year-anniversary-ovdva46be-kds-projects-fa51711e.vercel.app/one-year-anniversary/index.html"
     },
     {
       "source": "/one-year-anniversary/:path*",
