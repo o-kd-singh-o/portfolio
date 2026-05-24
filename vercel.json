@@ -39,7 +39,7 @@
     },
     {
       "source": "/workshops/build-fast-with-ai/v3/:path*",
-      "destination": "https://calendar-booking-app-claude.vercel.app/workshops/build-fast-with-ai/v3/:path*"
+      "destination": "https://calendar-booking-app-claude.vercel.app/:path*"
     }
   ]
 }
