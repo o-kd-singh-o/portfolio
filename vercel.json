@@ -36,6 +36,10 @@
     {
       "source": "/one-year-anniversary/:path*",
       "destination": "https://one-year-anniversary-ovdva46be-kds-projects-fa51711e.vercel.app/one-year-anniversary/:path*"
+    },
+    {
+      "source": "/workshop/build-fast-with-ai/v3/:path*",
+      "destination": "https://YOUR-MERIDIAN-URL.vercel.app/workshop/build-fast-with-ai/v3/:path*"
     }
   ]
 }
