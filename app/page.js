@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <main style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
-        <h1>🚀 KD Singh</h1>
+        <h1 className="text-3xl font-bold mb-1">🚀 KD Singh</h1>
         <p>Professional Portfolio Coming Soon</p>
         <p>Reach out: <a href="mailto:connect@kdsingh.ca" style={{ textDecoration: 'underline' }}>connect@kdsingh.ca</a></p>
         <p>
