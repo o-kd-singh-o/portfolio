@@ -24,14 +24,22 @@ export default function BuildFastWithAI() {
 
         <div className="flex gap-4">
           <a
-            href="https://drive.google.com/drive/folders/1RAstW4pmM1gPecGE_DxKhi6K40k7JWbn?usp=sharing"
+            href="https://www.kdsingh.ca/workshops/build-fast-with-ai/v3"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
+            Meridian
+          </a>
+          <a
+            href="https://drive.google.com/drive/folders/1RAstW4pmM1gPecGE_DxKhi6K40k7JWbn?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          >
             Workshop Files
           </a>
-          <a 
+          <a
             href="https://forms.gle/2dbAPgJo7uUX22sf7"
             target="_blank"
             rel="noopener noreferrer"
