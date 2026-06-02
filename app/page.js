@@ -7,7 +7,9 @@ export default function Home() {
     <>
       <main style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
         <h1 className="text-3xl font-bold mb-1">🚀 KD Singh</h1>
-        <p>Professional Portfolio Coming Soon</p>
+        <p>
+          Book a free 1:1 session: <a href="https://calendar.app.google/ksaLptXuFSWht8tU8" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>My Calendar</a>
+        </p>
         <p>Reach out: <a href="mailto:connect@kdsingh.ca" style={{ textDecoration: 'underline' }}>connect@kdsingh.ca</a></p>
         <p>
           Socials: <a href="https://linkedin.com/in/kd-singhh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>LinkedIn</a>
