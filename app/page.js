@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <main style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
-        <h1 className="text-3xl font-bold mb-1">🚀 KD Singh</h1>
+        <h1 className="text-3xl font-bold mb-1">🚀 Kundan Deep Singh</h1>
         <p>
           Book a free 1:1 session: <a href="https://calendar.app.google/ksaLptXuFSWht8tU8" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>My Calendar</a>
         </p>
