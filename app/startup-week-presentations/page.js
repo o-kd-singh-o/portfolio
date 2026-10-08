@@ -20,57 +20,127 @@ const presentations = [
     // Multiple AI prompts (add as many as you need here)
     prompts: [
       {
-        id: "leak-detection-audit",
-        title: "Prompt 1: Small Business Revenue Leak Audit",
-        description: "Analyze operational workflows to detect hidden revenue leaks and manual bottlenecks.",
-        content: `# Small Business Revenue Leak Diagnostic
+        id: "acero-process-mapping",
+        title: "ACERO Framework",
+        description: "Map every universal business activity end-to-end into the ACERO Framework (Attract, Convert, Execute, Retain, Operate).",
+        content: `You are an expert Operations Architect and Management Consultant specializing in business process mapping and revenue architecture.
 
-## Objective
-Analyze existing customer touchpoints, sales pipelines, and operations to pinpoint where revenue is dropping off and identify quick-win automation opportunities.
+Your objective is to map out every single universal business activity for a specific business, end-to-end, and organize them into the ACERO Framework.
 
-### Context & Persona:
-You are an expert fractional COO and AI Automation Consultant specializing in small-to-medium businesses.
+### Business Profile to Analyze:
+- **Industry / Niche**: [INSERT INDUSTRY, e.g., Boutique Marketing Agency, Residential Realtor, Plumbing & HVAC, Strategy Consultant]
+- **Target Customer (ICP)**: [INSERT TARGET AUDIENCE, e.g., Mid-market B2B SaaS founders, Homeowners selling $700k+ properties, Commercial property managers]
+- **Primary Offer / Deliverable**: [INSERT CORE OFFER, e.g., Paid Social Retainer, Full-Service Home Listing, Emergency Drain Clearing & Repiping, 6-Month Operations Transformation]
+- **Average Ticket Size / Model**: [INSERT PRICING MODEL, e.g., $5,000/mo retainer, 3% commission, $350 service call / $12k system replace, $50,000 fixed milestone project]
+- **Business Size / Operating Scale**: [INSERT SCALE, e.g., Solo operator, Small team of 5–10, Multi-crew enterprise with dispatch]
+- **My Business Specific Activities**: [INSERT YOUR BUSINESS SPECIFIC ACTIVITIES HERE, e.g., Publish at least 2-3 reel on instagram for promotion, Collect Facebook leads and book calls with them, Send Quotations to prospective clients ]
 
-### Instructions:
-1. **Pipeline Audit**: Review the end-to-end customer journey from discovery to repeat purchase.
-2. **Leak Identification**: Identify the top 3 highest-friction bottlenecks causing lead abandonment or delayed invoicing.
-3. **AI Action Plan**: For each leak, propose an automated AI workflow (e.g., automated instant lead qualification, automated multi-touch follow-up, invoice reconciliation).
+---
 
-\`\`\`markdown
-Business Profile Input:
-- Industry: [e.g. Home Services, Consulting, E-commerce]
-- Current Sales Channels: [e.g. Website Form, Phone calls, Instagram DMs]
-- Monthly Leads / Prospects: [e.g. 50-100]
-- Biggest Operational Bottleneck: [e.g. Following up with quotes takes 3+ days]
-\`\`\`
+### The ACERO Framework Definitions:
+1. **Attract**: Getting the market's attention (Positioning, outbound, inbound, brand, partnerships).
+2. **Convert**: Turning attention into money (Discovery, qualification, audits, proposal design, negotiation, closing, payment collection).
+3. **Execute**: Delivering the service or product (Client onboarding, production, staging, fulfillment, quality control, handover).
+4. **Retain**: Multiplying the dollar (Upsells, cross-sells, recurring agreements, client health, referrals, review collection).
+5. **Operate**: Running the foundation & back office (Financials, talent/capacity, legal/compliance, tech stack, SOPs, metrics).
 
-> **Expected Output:** A prioritized table of identified revenue leaks, estimated monthly revenue impact, and actionable AI implementation blueprints.`,
+---
+
+### Execution Instructions & Output Requirements:
+1. **End-to-End Chronological Flow**: For each pillar (A, C, E, R, O), think chronologically about what the business must do first, next, and last.
+2. **Granular & Tactical**: Avoid generic statements like "do marketing" or "send invoices." Specify exact deliverables, workflows, industry-standard software tools, metrics, documents, and real-world artifacts (e.g., SOWs, CMAs, permits, Good/Better/Best proposals, QBRs, truck inventory).
+3. **Sub-Phase Grouping**: Under each ACERO pillar, organize the activities into 3–4 logical sub-stages with 3–5 bullet points per sub-stage.
+4. **Completeness**: Do not abbreviate or summarize. Include every essential activity required to run this business without leaving operational gaps.
+
+---
+
+### Required Output Format:
+1. A visual ASCII or Mermaid workflow diagram showing the end-to-end flow across ACERO.
+2. **The Granular Activity Map**: Deep dive into all 5 categories (Attract, Convert, Execute, Retain, Operate) structured with bold sub-phases and specific bullet points.
+3. **Summary Scorecard / Quick-Reference Table**: A summary table outlining the Core Goal, Primary Tools/Artifacts, and Key Metric for each of the 5 pillars.`,
       },
       {
-        id: "growth-automation-engine",
-        title: "Prompt 2: Growth Automation & Follow-Up Playbook",
-        description: "Automate high-converting lead nurturing sequences and customer re-engagement.",
-        content: `# Growth Automation & Follow-Up Engine
+        id: "forensic-operational-audit",
+        title: "End-to-End Business Mapping & Maturity Hierarchy",
+        description: "Conduct a forensic operational audit across the 5 ACERO pillars, map failure modes using the V.O.T.E. framework, and prescribe fixes governed by the Maturity Hierarchy.",
+        content: `You are an elite Operations Architect, Fractional COO, and Business Systems Engineer.
 
-## Objective
-Generate an autonomous multi-stage follow-up system that recaptures stalled leads and drives repeat business without manual effort.
+Your objective is to conduct a forensic operational audit on my business across the 5 pillars of the ACERO Framework (Attract, Convert, Execute, Retain, Operate). 
 
-### Framework:
-- **Phase 1: Speed to Lead**: Instant AI personalized acknowledgment within 60 seconds of initial inquiry.
-- **Phase 2: Value Nurture (Day 2-5)**: Address common objections, share case studies, and provide industry insight.
-- **Phase 3: The Low-Friction Re-Engagement (Day 10)**: 9-word re-engagement email to revive cold conversations.
+For each pillar, identify the single most critical, high-friction, time-consuming, or revenue-leaking activity, map its failure mode using the V.O.T.E. Framework, calculate the revenue leak, and design a high-leverage operational fix strictly governed by the Maturity Hierarchy.
 
-\`\`\`markdown
-Configuration Variables:
-- Target Audience: [Insert Customer Persona]
-- Core Offer & Price Point: [Insert Product/Service Details]
-- Primary Objection: [e.g. "Too busy right now" or "Price is high"]
-\`\`\`
+---
 
-### Execution Rules:
-- Never sound generic or corporate; adopt a conversational, trusted-advisor tone.
-- Keep each follow-up message under 120 words.
-- Include a single, frictionless call-to-action (CTA).`,
+### BUSINESS CONTEXT & PROFILE
+
+- **Industry / Niche**: [INSERT INDUSTRY / NICHE, e.g., Residential Real Estate, B2B SaaS, Dental Practice]
+- **Target Customer / ICP**: [INSERT TARGET CUSTOMER, e.g., Homeowners selling $400k-$700k homes / Series A founders]
+- **Core Offer & Pricing**: [INSERT OFFER & TICKET SIZE, e.g., Full-service home listing at 3% commission / $5,000/mo retainer]
+- **Team Size & Core Roles**: [INSERT TEAM SIZE & ROLES, e.g., 3 people: Lead Rainmaker, Ops Manager/TC, Junior Agent/ISA]
+- **Current Primary Tech Stack**: [INSERT TOOLS IN USE, e.g., Follow Up Boss, Meta Ads, DocuSign, SkySlope, QuickBooks]
+- **Known Bottlenecks / Pain Points**: [INSERT CURRENT BOTTLENECK, e.g., Slow lead follow-up, spending 3 hours on proposals, manual paperwork, past clients forgotten]
+
+---
+
+### FRAMEWORKS TO APPLY
+
+#### 1. The V.O.T.E. Framework (Granular Process Mapping)
+- **V — Verb**: What action must physically be taken? (Specific operational task)
+- **O — Owner**: Who is directly responsible? (Specific human role or automated agent)
+- **T — Tool**: What exact software, platform, or artifact executes or records the action?
+- **E — Event**: What exact trigger starts the workflow? (When does it happen?)
+
+#### 2. The Maturity Hierarchy (The Rule of Sequence)
+Fixes MUST be sequential. You cannot skip steps:
+1. **Business Processes (SOPs / Checklists)**: Manual clarity, rules, scripts, and human accountability.
+2. **Storage (Digital Memory)**: Systems of record (CRMs, databases, cloud vaults, structured fields).
+3. **Automation (Rules & Logic)**: Deterministic triggers (Zapier, Make, native CRM webhooks).
+4. **AI (Cognitive & Decisions)**: LLMs, AI agents, document parsers, automated summarizers.
+
+*Strict Guideline*: Be realistic. Do not prescribe AI where a simple CRM field (Storage) or a deterministic webhook (Automation) solves the problem. Prescribe AI ONLY when cognitive judgment, parsing, or content generation is required.
+
+---
+
+### OUTPUT INSTRUCTIONS & REQUIRED STRUCTURE
+
+Deliver a deep dive across all 5 ACERO Pillars:
+- **Pillar 1: ATTRACT** (Lead Generation, Inbound Speed, Outbound)
+- **Pillar 2: CONVERT** (Discovery, Proposals/Audits, Sales Presentation, Closing)
+- **Pillar 3: EXECUTE** (Fulfillment, Client Delivery, Quality Control, Roadblocks)
+- **Pillar 4: RETAIN** (Review Harvesting, Sphere Nurture, Referrals, Lifetime Value)
+- **Pillar 5: OPERATE** (Back-Office, Compliance, Invoicing/Payouts, Financial Controls)
+
+For each pillar, structure the response into the following 4 sections:
+
+#### Section 1: The Critical Leaking Activity & Current V.O.T.E. Mapping
+- Identify the single highest-risk activity in this pillar.
+- Provide the **Current (Broken/Baseline) V.O.T.E.** breakdown:
+  - **Event**: The trigger.
+  - **Owner**: The current person doing it.
+  - **Tool**: The current tool used.
+  - **Verb**: The current manual action taken.
+
+#### Section 2: The Audit (The Revenue Leak & Friction Cost)
+- **The Operational Friction**: What breaks, stalls, or slows down?
+- **The Financial & Conversion Leak**: Quantify the revenue lost using realistic benchmarks (e.g., drop in conversion rate, lost deals, wasted ad spend, or lost billable hours).
+
+#### Section 3: The Growth Upside
+- What is the tangible upside of solving this?
+- Define the clear operational North Star / benchmark target (e.g., cut turnaround time from 48 hours to 20 minutes; 80% same-day signing rate).
+
+#### Section 4: The Maturity Hierarchy Diagnostic & Upgraded V.O.T.E. Workflow
+- **Maturity Audit**: Break down exactly what is needed at each level:
+  - *Process / SOP*: What checklist, script, or rule is required?
+  - *Storage*: What database, custom fields, or cloud folders are needed?
+  - *Automation*: What conditional logic, webhook, or trigger executes?
+  - *AI*: What cognitive task or LLM/AI model is deployed (or state "None needed" if pure automation suffices)?
+- **The Upgraded V.O.T.E. Workflow**: Walk through the new end-to-end flow step-by-step using clear V.O.T.E. milestones showing how the human, tools, automation, and AI interact.
+
+---
+
+### FINAL SUMMARY DELIVERABLE
+Conclude with a clean **Maturity Architecture & Resource Allocation Table**:
+- Columns: \`ACERO Pillar\` | \`Critical Leaking Activity\` | \`Maturity Stage Applied\` | \`Primary Fix Mechanism\` | \`Human Attention Shift (Stop Doing X -> Start Doing Y)\``,
       },
     ],
   },
@@ -84,32 +154,6 @@ Configuration Variables:
     // 2. Set slideImage: "/slides/vibe-coding-over.png"
     slideImage: null,
     presentationUrl: "#", // Add presentation link (e.g. Google Slides, PDF, Gamma)
-    prompts: [
-      {
-        id: "vibe-to-production",
-        title: "Prompt 1: Vibe-Code to Production-Ready Architecture",
-        description: "Systematically review and harden prototype code into scalable, secure production software.",
-        content: `# Production Code Hardening Framework
-
-## Objective
-Transform AI-assisted rapid prototypes into maintainable, tested, and secure production systems.
-
-### Checklist:
-1. **Boundary & Input Validation**: Add strict schemas (e.g. Zod, Pydantic) for all user inputs and external API responses.
-2. **Error Handling & Observability**: Replace generic try/catch blocks with domain error types and structured logging.
-3. **Database & Concurrency Safety**: Ensure idempotent operations and proper transaction isolation.
-4. **Automated Testing Suite**: Generate unit tests for edge cases, error branches, and integration regressions.
-
-\`\`\`bash
-# Run verification
-npm test
-npm run lint
-npm run build
-\`\`\`
-
-> **Note:** Prompt content can be easily updated or swapped with your finalized markdown notes.`,
-      },
-    ],
   },
 ];
 

@@ -130,6 +130,18 @@ function MarkdownPreview({ content }) {
                 );
               }
 
+              // Heading 4
+              if (trimmed.startsWith('#### ')) {
+                return (
+                  <h4
+                    key={lIdx}
+                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 pt-2"
+                  >
+                    {trimmed.slice(5)}
+                  </h4>
+                );
+              }
+
               // Heading 3
               if (trimmed.startsWith('### ')) {
                 return (
@@ -139,6 +151,16 @@ function MarkdownPreview({ content }) {
                   >
                     {trimmed.slice(4)}
                   </h3>
+                );
+              }
+
+              // Horizontal rule
+              if (trimmed === '---' || trimmed === '***') {
+                return (
+                  <hr
+                    key={lIdx}
+                    className="my-3 border-t border-gray-200 dark:border-gray-800"
+                  />
                 );
               }
 
@@ -256,32 +278,59 @@ export default function StartupWeekPresentationsClient({ presentations }) {
     <main className="min-h-screen px-4 py-16 sm:px-6 lg:px-8 xl:px-12 w-full">
       <div className="w-full max-w-[1800px] mx-auto pt-8">
         {/* Page Header */}
-        <header className="mb-10">
-          <Link
-            href="/"
-            className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 mb-4 transition-colors"
-          >
-            <svg
-              className="w-4 h-4 mr-1.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <header className="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <Link
+              href="/"
+              className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 mb-4 transition-colors"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-            Back to Home
-          </Link>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Startup Week Presentations
-          </h1>
-          <p className="mt-2 text-base text-gray-600 dark:text-gray-400">
-            Slide decks and companion AI prompts from my talks at Startup Week.
-          </p>
+              <svg
+                className="w-4 h-4 mr-1.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              Back to Home
+            </Link>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Startup Week Presentations
+            </h1>
+            <p className="mt-2 text-base text-gray-600 dark:text-gray-400">
+              Slide decks and companion AI prompts from my talks at Startup Week.
+            </p>
+          </div>
+
+          {/* Subtle Book a 1:1 Call Button on the right */}
+          <div className="shrink-0 sm:pb-1">
+            <a
+              href="https://calendar.app.google/ksaLptXuFSWht8tU8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <svg
+                className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Book a Free 1:1 Audit Call
+            </a>
+          </div>
         </header>
 
         {/* Both Containers Side-by-Side in One Row Taking Full Available Space */}
@@ -376,27 +425,29 @@ export default function StartupWeekPresentationsClient({ presentations }) {
                   Presentation
                 </a>
 
-                {/* 2. AI Prompts Button (Consistent Blue Theme matching the Tag) */}
-                <button
-                  type="button"
-                  onClick={() => handleOpenModal(item)}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold border border-blue-200 dark:border-blue-800/80 bg-blue-50/60 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors cursor-pointer"
-                >
-                  <svg
-                    className="w-4 h-4 text-blue-600 dark:text-blue-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {/* 2. AI Prompts Button (Only shown if presentation has prompts) */}
+                {item.prompts && item.prompts.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => handleOpenModal(item)}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold border border-blue-200 dark:border-blue-800/80 bg-blue-50/60 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors cursor-pointer"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                  AI Prompts
-                </button>
+                    <svg
+                      className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                    AI Prompts
+                  </button>
+                )}
               </div>
             </article>
           ))}

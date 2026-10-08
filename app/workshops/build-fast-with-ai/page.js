@@ -22,7 +22,7 @@ export default function BuildFastWithAI() {
           actionable skills that will transform how you approach building software.
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           <a
             href="https://www.kdsingh.ca/workshops/build-fast-with-ai/v3"
             target="_blank"
@@ -43,8 +43,17 @@ export default function BuildFastWithAI() {
             href="https://forms.gle/2dbAPgJo7uUX22sf7"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          >
             Workshop Feedback
+          </a>
+          <a
+            href="https://calendar.app.google/ksaLptXuFSWht8tU8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          >
+            Book a Free 1:1 Audit Call
           </a>
         </div>
       </div>
