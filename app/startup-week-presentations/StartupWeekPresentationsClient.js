@@ -335,122 +335,224 @@ export default function StartupWeekPresentationsClient({ presentations }) {
 
         {/* Both Containers Side-by-Side in One Row Taking Full Available Space */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full items-stretch">
-          {presentations.map((item, index) => (
-            <article
-              key={item.id}
-              id={item.id}
-              className="scroll-mt-24 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 p-6 sm:p-8 shadow-sm transition-all hover:shadow-md flex flex-col justify-between h-full"
-            >
-              {/* Top Section: Title & Header */}
-              <div>
-                {/* Short form badge before the title (matching blue theme) */}
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
-                    {item.shortTitle}
-                  </span>
-                  <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
-                    {item.session}
-                  </span>
-                </div>
+          {presentations.map((item, index) => {
+            const hasPresentation = !!item.presentationUrl && item.presentationUrl !== '#';
 
-                {/* Full Title of the Presentation */}
-                <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-snug mb-6">
-                  {item.fullTitle}
-                </h2>
-
-                {/* Slide Cover Preview Container (16:9 Aspect Ratio) */}
-                <div className="relative aspect-video w-full rounded-xl overflow-hidden border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 flex flex-col items-center justify-center p-6 text-center">
-                  {item.slideImage ? (
+            const previewInner = (
+              <>
+                {item.slideImage ? (
+                  <>
                     <Image
                       src={item.slideImage}
-                      alt={`${item.fullTitle} - First Slide`}
+                      alt={`${item.fullTitle} - Presentation Preview`}
                       fill
-                      className="object-cover"
+                      unoptimized
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       priority={index === 0}
                     />
+                    {hasPresentation && (
+                      <>
+                        {/* Hover Overlay with Download Action */}
+                        <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center p-4">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/95 dark:bg-gray-900/95 text-gray-900 dark:text-white font-semibold text-sm shadow-xl backdrop-blur-sm transform translate-y-1 group-hover:translate-y-0 transition-transform duration-200">
+                            <svg
+                              className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                              />
+                            </svg>
+                            Download PDF
+                          </span>
+                        </div>
+
+                        {/* Subtle corner badge indicating PDF download on resting state */}
+                        <div className="absolute bottom-2.5 right-2.5 pointer-events-none transition-opacity duration-200 group-hover:opacity-0">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium bg-gray-950/75 text-white backdrop-blur-md shadow-sm border border-white/10">
+                            <svg
+                              className="w-3 h-3 text-blue-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                              />
+                            </svg>
+                            Click to Download PDF
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center max-w-sm p-6">
+                    {/* Slide Placeholder Graphic */}
+                    <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/60 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-3 border border-blue-100 dark:border-blue-900">
+                      <svg
+                        className="w-7 h-7"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.75}
+                          d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+                        />
+                      </svg>
+                    </div>
+                    <span className="inline-block px-2.5 py-0.5 text-xs font-medium bg-gray-200/70 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full mb-2">
+                      Cover Slide Preview
+                    </span>
+                    <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-gray-100 line-clamp-2">
+                      {item.shortTitle}
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      First page of the presentation slide deck will appear here
+                    </p>
+                  </div>
+                )}
+              </>
+            );
+
+            return (
+              <article
+                key={item.id}
+                id={item.id}
+                className="scroll-mt-24 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 p-6 sm:p-8 shadow-sm transition-all hover:shadow-md flex flex-col justify-between h-full"
+              >
+                {/* Top Section: Title & Header */}
+                <div>
+                  {/* Short form badge before the title (matching blue theme) */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+                      {item.shortTitle}
+                    </span>
+                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
+                      {item.session}
+                    </span>
+                  </div>
+
+                  {/* Full Title of the Presentation */}
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-snug mb-6">
+                    {item.fullTitle}
+                  </h2>
+
+                  {/* Slide Cover Preview Container (16:9 Aspect Ratio) */}
+                  {hasPresentation ? (
+                    <a
+                      href={item.presentationUrl}
+                      download={item.downloadFileName || true}
+                      target={item.presentationUrl.startsWith('http') ? '_blank' : undefined}
+                      rel={item.presentationUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      title={`Download ${item.shortTitle} Presentation (PDF)`}
+                      className={`group relative aspect-video w-full rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-800/40 flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer block ${
+                        item.slideImage
+                          ? 'border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500'
+                          : 'border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'
+                      }`}
+                    >
+                      {previewInner}
+                    </a>
                   ) : (
-                    <div className="flex flex-col items-center justify-center max-w-sm">
-                      {/* Slide Placeholder Graphic */}
-                      <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/60 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-3 border border-blue-100 dark:border-blue-900">
-                        <svg
-                          className="w-7 h-7"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1.75}
-                            d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                          />
-                        </svg>
-                      </div>
-                      <span className="inline-block px-2.5 py-0.5 text-xs font-medium bg-gray-200/70 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full mb-2">
-                        Cover Slide Preview
-                      </span>
-                      <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-gray-100 line-clamp-2">
-                        {item.shortTitle}
-                      </h3>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                        First page of the presentation slide deck will appear here
-                      </p>
+                    <div
+                      className={`relative aspect-video w-full rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-800/40 flex flex-col items-center justify-center text-center ${
+                        item.slideImage
+                          ? 'border border-gray-200 dark:border-gray-800 shadow-sm'
+                          : 'border-2 border-dashed border-gray-300 dark:border-gray-700'
+                      }`}
+                    >
+                      {previewInner}
                     </div>
                   )}
                 </div>
-              </div>
 
-              {/* Bottom Action Buttons */}
-              <div className="mt-8 pt-4 border-t border-gray-100 dark:border-gray-800/80 flex flex-wrap items-center gap-3">
-                {/* 1. Presentation Button */}
-                <a
-                  href={item.presentationUrl}
-                  target={item.presentationUrl.startsWith('http') ? '_blank' : undefined}
-                  rel={item.presentationUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                    />
-                  </svg>
-                  Presentation
-                </a>
-
-                {/* 2. AI Prompts Button (Only shown if presentation has prompts) */}
-                {item.prompts && item.prompts.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => handleOpenModal(item)}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold border border-blue-200 dark:border-blue-800/80 bg-blue-50/60 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors cursor-pointer"
-                  >
-                    <svg
-                      className="w-4 h-4 text-blue-600 dark:text-blue-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                {/* Bottom Action Buttons */}
+                <div className="mt-8 pt-4 border-t border-gray-100 dark:border-gray-800/80 flex flex-wrap items-center gap-3">
+                  {/* 1. Presentation Button */}
+                  {hasPresentation ? (
+                    <a
+                      href={item.presentationUrl}
+                      download={item.downloadFileName || true}
+                      target={item.presentationUrl.startsWith('http') ? '_blank' : undefined}
+                      rel={item.presentationUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm cursor-pointer"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
-                    AI Prompts
-                  </button>
-                )}
-              </div>
-            </article>
-          ))}
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                        />
+                      </svg>
+                      Presentation
+                    </a>
+                  ) : (
+                    <span
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-gray-100 text-gray-400 dark:bg-gray-800/80 dark:text-gray-500 cursor-not-allowed select-none"
+                      title="Presentation PDF coming soon"
+                    >
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                        />
+                      </svg>
+                      Presentation
+                    </span>
+                  )}
+
+                  {/* 2. AI Prompts Button (Only shown if presentation has prompts) */}
+                  {item.prompts && item.prompts.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => handleOpenModal(item)}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold border border-blue-200 dark:border-blue-800/80 bg-blue-50/60 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors cursor-pointer"
+                    >
+                      <svg
+                        className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                      AI Prompts
+                    </button>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 
