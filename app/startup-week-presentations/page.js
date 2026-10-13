@@ -12,12 +12,9 @@ const presentations = [
     shortTitle: "Plug the Revenue Leaks",
     fullTitle: "Plug the Revenue Leaks: Small Business AI Playbook to Automate Growth and Drive Revenue.",
     session: "Session 01",
-    // To add your slide cover image:
-    // 1. Add image to /public (e.g. /public/presentations/plug-the-revenue-leaks-preview.svg)
-    // 2. Set slideImage: "/presentations/plug-the-revenue-leaks-preview.svg"
-    slideImage: null,
-    presentationUrl: "#", // Add presentation link (e.g. PDF)
-    downloadFileName: "Plug the Revenue Leaks - KD Singh.pdf",
+    slideImage: "/presentations/plug-the-revenue-leaks-preview.svg",
+    presentationUrl: "/presentations/plug-the-revenue-leaks.pdf",
+    downloadFileName: "Plug the Revenue Leaks.Small Business AI Playbook.pdf",
     // Multiple AI prompts (add as many as you need here)
     prompts: [
       {
