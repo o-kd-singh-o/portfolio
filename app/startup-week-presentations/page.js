@@ -13,10 +13,11 @@ const presentations = [
     fullTitle: "Plug the Revenue Leaks: Small Business AI Playbook to Automate Growth and Drive Revenue.",
     session: "Session 01",
     // To add your slide cover image:
-    // 1. Add image to /public (e.g. /public/slides/plug-the-revenue-leaks.png)
-    // 2. Set slideImage: "/slides/plug-the-revenue-leaks.png"
+    // 1. Add image to /public (e.g. /public/presentations/plug-the-revenue-leaks-preview.svg)
+    // 2. Set slideImage: "/presentations/plug-the-revenue-leaks-preview.svg"
     slideImage: null,
-    presentationUrl: "#", // Add presentation link (e.g. Google Slides, PDF, Gamma)
+    presentationUrl: "#", // Add presentation link (e.g. PDF)
+    downloadFileName: "Plug the Revenue Leaks - KD Singh.pdf",
     // Multiple AI prompts (add as many as you need here)
     prompts: [
       {
@@ -149,11 +150,9 @@ Conclude with a clean **Maturity Architecture & Resource Allocation Table**:
     shortTitle: "The Era of Vibe Coding is Over",
     fullTitle: "The Era of Vibe Coding is Over. It's Time to Ship the Production Code.",
     session: "Session 02",
-    // To add your slide cover image:
-    // 1. Add image to /public (e.g. /public/slides/vibe-coding-over.png)
-    // 2. Set slideImage: "/slides/vibe-coding-over.png"
-    slideImage: null,
-    presentationUrl: "#", // Add presentation link (e.g. Google Slides, PDF, Gamma)
+    slideImage: "/presentations/the-era-of-vibe-coding-is-over-preview.svg",
+    presentationUrl: "/presentations/the-era-of-vibe-coding-is-over.pdf",
+    downloadFileName: "The Era of 'Vibe Coding' is Over. Ship Production Code.pdf",
   },
 ];
 
